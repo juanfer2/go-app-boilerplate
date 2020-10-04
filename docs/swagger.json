@@ -1,8 +1,8 @@
 {
-  "swagger": "3.0",
-  "info": {
-    "contact": {},
-    "license": {}
-  },
-  "paths": {}
+    "swagger": "2.0",
+    "info": {
+        "contact": {},
+        "license": {}
+    },
+    "paths": {}
 }
