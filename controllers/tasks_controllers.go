@@ -1,27 +1,46 @@
 package controllers
 
 import (
+	"log"
+
 	"github.com/gofiber/fiber/v2"
+	"github.com/juanfer2/api-rest-go/models"
 	"github.com/juanfer2/api-rest-go/services"
+	"github.com/juanfer2/api-rest-go/validations"
 )
 
+func getDataTaks(c *fiber.Ctx) models.Task {
+	newTaks := new(models.Task)
+	log.Println(newTaks)
+	body := c.BodyParser(newTaks)
+	log.Println(body)
+	return *newTaks
+}
+
 // Create Task
-func CreateTaks(c *fiber.Ctx) error {
-	return c.JSON("CreateTask")
+func CreateTasks(c *fiber.Ctx) error {
+	var p models.Task
+	p = getDataTaks(c)
+	err := validations.ValidateCreateTask(p)
+	if err != nil {
+		return c.Status(422).JSON(err)
+	}
+	data := services.CreateTaskService(p)
+	return c.JSON(data)
 }
 
-func GetTaks(c *fiber.Ctx) error {
-	Tasks := services.GetTasksService()
-	return c.JSON(Tasks)
+func GetTasks(c *fiber.Ctx) error {
+	tasks := services.GetTasksService()
+	return c.JSON(tasks)
 
 }
 
-func UpdateTaks(c *fiber.Ctx) error {
+func UpdateTasks(c *fiber.Ctx) error {
 	return c.JSON("UpdateTask")
 
 }
 
-func DeleteTaks(c *fiber.Ctx) error {
+func DeleteTasks(c *fiber.Ctx) error {
 	return c.JSON("DeleteTask")
 
 }

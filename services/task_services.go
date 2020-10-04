@@ -5,8 +5,8 @@ import (
 	"github.com/juanfer2/api-rest-go/repositories"
 )
 
-func CreateTakService(inputTaks models.Task) {
-	repositories.CreateTaks(inputTaks)
+func CreateTaskService(inputTaks models.Task) models.Task {
+	return repositories.CreateTaks(inputTaks)
 }
 
 func GetTasksService() []models.Task {
