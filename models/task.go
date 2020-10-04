@@ -12,13 +12,6 @@ type Task struct {
 	Content string `json:"Content"`
 }
 
-type allTasks []Task
-
-// Persistence
-var tasks = allTasks{
-	{
-		ID:      1,
-		Name:    "Task One",
-		Content: "Some Content",
-	},
+func (t Task) IsNull() bool {
+	return t.ID == 0
 }

@@ -1,29 +1,14 @@
 package servers
 
 import (
-	"fmt"
-
 	swagger "github.com/arsmn/fiber-swagger/v2"
 	_ "github.com/arsmn/fiber-swagger/v2/example/docs"
 	"github.com/gofiber/fiber/v2"
 
-	"github.com/juanfer2/api-rest-go/controllers"
 	"github.com/juanfer2/api-rest-go/databases"
 	"github.com/juanfer2/api-rest-go/models"
+	"github.com/juanfer2/api-rest-go/routes"
 )
-
-// "github.com/juanfer2/api-rest-go/controllers"
-func helloWorld(c *fiber.Ctx) error {
-	msg := fmt.Sprintf("Hello, %s 👋!", "World")
-	return c.SendString(msg) // => Hello john 👋!
-}
-
-func setupRoutes(app *fiber.App) {
-	app.Get("/", helloWorld)
-	app.Get("/tasks", controllers.GetTasks)
-	app.Post("/tasks", controllers.CreateTasks)
-	// app.Post("/tasks", controllers.CreateTaks)
-}
 
 func StartServerApp() {
 	db := databases.Conn()
@@ -53,6 +38,6 @@ func StartServerApp() {
 		URL:         "./docs/doc.json",
 		DeepLinking: true,
 	}))
-	setupRoutes(app)
+	routes.SetupRoutes(app)
 	app.Listen(":4000")
 }

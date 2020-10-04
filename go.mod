@@ -14,7 +14,7 @@ require (
 	github.com/go-openapi/swag v0.19.9 // indirect
 	github.com/go-ozzo/ozzo-validation v3.6.0+incompatible // indirect
 	github.com/go-ozzo/ozzo-validation/v4 v4.2.2
-	github.com/gofiber/fiber v1.14.6 // indirect
+	github.com/gofiber/fiber v1.14.6
 	github.com/gofiber/fiber/v2 v2.0.5
 	github.com/howeyc/fsnotify v0.9.0 // indirect
 	github.com/imdario/mergo v0.3.11 // indirect
