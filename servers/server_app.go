@@ -14,7 +14,7 @@ func StartServerApp() {
 	db := databases.Conn()
 
 	// Migrate the schema
-	db.AutoMigrate(&models.Task{})
+	db.AutoMigrate(&models.Task{}, &models.User{})
 
 	// logger, _ := zap.NewProduction()
 	// defer logger.Sync()

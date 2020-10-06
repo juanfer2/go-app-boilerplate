@@ -9,3 +9,5 @@ func ApiUrl() string {
 func Port() string {
 	return utils.GetEnvVariable("PORT")
 }
+
+var SecretKey = "jdnfksdmfksd"

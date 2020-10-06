@@ -23,4 +23,8 @@ func SetupRoutes(app *fiber.App) {
 	app.Get("/tasks/:id", controllers.GetTasksById)
 	app.Put("/tasks/:id", controllers.UpdateTaskById)
 	app.Delete("/tasks/:id", controllers.DeleteTaskById)
+
+	// Users
+	app.Get("/users", controllers.GetUsers)
+	app.Post("/users", controllers.CreateUser)
 }
